@@ -1,4 +1,7 @@
-import pygame
+from pygame import Color
 
 
-QUEEN_YELLOW = pygame.Color(250, 255, 165)
+BLACK = Color(0, 0, 0)
+WHITE = Color(255, 255, 255)
+
+QUEEN_YELLOW = Color(250, 255, 165)

@@ -4,6 +4,7 @@ import os
 import sys
 
 import pygame
+from classes.bees import Queen
 from lib import pygcurse
 
 from helpers.constants import Constants
@@ -14,7 +15,7 @@ from helpers.constants import Constants
 
 class Game(object):
     def __init__(self):
-        self.window = pygcurse.PygcurseWindow(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, "GAME NAME")
+        self.window = pygcurse.PygcurseWindow(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, "Spirit of the Hive")
         pygame.mouse.set_visible(Constants.CONFIG.getboolean('game', 'mouse'))
         self.window.autoupdate = False
         # self.clock = pygame.time.Clock()
@@ -22,6 +23,9 @@ class Game(object):
         font_name = Constants.CONFIG.get('game', 'font')
         font_size = Constants.CONFIG.getint('game', 'font_size')
         self.window.font = pygame.font.Font(os.path.join(Constants.RES_DIR, font_name), font_size)
+
+        self.creatures = []
+        self.creatures.append(Queen())
 
         self.exit_game_loop = False
 
@@ -43,6 +47,8 @@ class Game(object):
             self.render()
 
     def render(self):
+        for creature in self.creatures:
+            creature.draw(self.window)
         self.window.update()
 
 

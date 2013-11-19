@@ -10,7 +10,6 @@ class Constants:
     CONFIG.read(os.path.join(DATA_DIR, '../data/config.ini'))
 
     FPS = 40
-    GAME_WIDTH = 40
-    SCREEN_WIDTH = GAME_WIDTH
+    SCREEN_WIDTH = 60
     SCREEN_HEIGHT = 30
     BG_COLOR = pygame.Color(0, 0, 0)
