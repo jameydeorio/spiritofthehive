@@ -52,10 +52,10 @@ class Game(object):
                     for creature in self.creatures:
                         creature.move()
 
-                    for i in range(19):  # each bee is 100 bees
+                    for i in range(50):
                         self.creatures.insert(0, Worker())
 
-                    for i in range(1):  # each bee is 100 bees
+                    for i in range(1):
                         self.creatures.insert(0, Drone())
 
                     # draw

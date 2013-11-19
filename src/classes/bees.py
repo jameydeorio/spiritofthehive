@@ -20,7 +20,7 @@ class Queen(Bee):
         super(Queen, self).__init__()
 
         self.color = QUEEN_WHITE
-        self.character = 'B'
+        self.character = 'Q'
         self.x = Constants.SCREEN_WIDTH / 2
         self.y = Constants.SCREEN_HEIGHT / 2
 
@@ -36,7 +36,7 @@ class Worker(Bee):
         super(Worker, self).__init__()
 
         self.color = WORKER_YELLOW
-        self.character = 'b'
+        self.character = 'w'
         self.x = random.randrange(Constants.SCREEN_WIDTH)
         self.y = random.randrange(Constants.SCREEN_HEIGHT - 1)
 
