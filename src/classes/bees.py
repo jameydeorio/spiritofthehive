@@ -11,3 +11,9 @@ class Queen(Creature):
         self.character = 'b'
         self.x = Constants.SCREEN_WIDTH / 2
         self.y = Constants.SCREEN_HEIGHT / 2
+
+    def lay(self):
+        """
+        Lay eggs in cell. A healthy queen will lay 2,000 eggs per day.
+        """
+        pass
