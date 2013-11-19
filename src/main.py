@@ -5,6 +5,7 @@ import sys
 
 import pygame
 from classes.bees import Queen
+from helpers import colors
 from lib import pygcurse
 
 from helpers.constants import Constants
@@ -24,6 +25,8 @@ class Game(object):
         font_size = Constants.CONFIG.getint('game', 'font_size')
         self.window.font = pygame.font.Font(os.path.join(Constants.RES_DIR, font_name), font_size)
 
+        self.turn = 0
+
         self.creatures = []
         self.creatures.append(Queen())
 
@@ -37,18 +40,23 @@ class Game(object):
             self.window.fill(bgcolor=Constants.BG_COLOR, region=(1, 1, Constants.SCREEN_WIDTH - 2, Constants.SCREEN_HEIGHT - 2))
 
             # input
+
             for event in pygame.event.get():
                 if (event.type == pygame.QUIT) or (event.type == pygame.KEYDOWN and event.key == pygame.K_q):
                     sys.exit(0)
+                elif event.type == pygame.KEYDOWN:
+                    self.turn += 1
 
-            # compute
+                # compute
 
-            # draw
-            self.render()
+                # draw
+                self.render()
 
     def render(self):
         for creature in self.creatures:
             creature.draw(self.window)
+
+        self.window.write('TURN: {0}'.format(self.turn), 0, Constants.SCREEN_HEIGHT - 1, colors.WHITE, colors.BLACK)
         self.window.update()
 
 
